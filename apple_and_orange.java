@@ -10,21 +10,32 @@ public class Solution {
      * Complete the countApplesAndOranges function below.
      */
     static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
-      int count1=0,count2=0;
-      for(int i=0;i<apples.length;i++){
-        int a1=a+apples[i];
-        if(a1>=s&&a1<=t){
-          count1++;
+        
+        int length = Math.max(apples.length, oranges.length);
+
+        int count_a = 0;
+        int count_b = 0; 
+        for(int i=0; i<length ; i++){
+
+            if(i < apples.length){
+                
+                apples[i] = apples[i] + a;
+                if(apples[i] >=s && apples[i] <=t){
+                    count_a++;
+                }
+               
+            }
+
+            if(i < oranges.length){
+                
+                oranges[i] = oranges[i] + b;
+                if(oranges[i] >=s && oranges[i] <=t){
+                    count_b++;
+                }
+            }
         }
-      }
-      for(int j=0;j<oranges.length;j++){
-        int a1=b+oranges[j];
-        if(a1>=s&&a1<=t){
-          count2++;
-        }
-      }
-      System.out.println(count1);
-      System.out.println(count2);
+        System.out.println(count_a);
+        System.out.print(count_b);
 
     }
 
